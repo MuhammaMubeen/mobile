@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="dashboard.css">
+  <title>Dashboard</title>
+
+</head>
+
+<body>
+  <div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="images (1).png" alt="Logo Image" class="logo-img">
+      <span>Dancini Thay</span>
+    </div>
+    
+    <header>
+      <div class="profile">
+        <span></span>
+      </div>
+    </header>
+    <!-- Icons Section -->
+    <div class="nav-icons">
+      <!-- Bell Icon --> 
+      <div class="bell">
+        <i class="fas fa-bell"></i>
+        <!-- Notification Badge -->
+        <span class="notification-badge">2</span>
+        <!-- Notification Popup -->
+        <div class="notification-popup">
+          <strong>Welcome!</strong> You have new notifications.
+        </div>
+      </div>
+   
+  
+      <!-- User Icon -->
+      <div class="user-dropdown">
+        <i class="fas fa-user"></i>
+        <!-- Dropdown Menu -->
+        <div class="dropdown-menu">
+          <a href="#">Profile</a>
+          <a href="#">Settings</a>
+          <a href="#">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Notifications Container -->
+<div id="notifications-container"></div>
+
+
+
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class= "sidebar">
+      
+    
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" class="active"><i class="fas fa-house"></i>Dashboard</a></li>
+          <li><a href="earn.html"><i class="fas fa-coins"></i> Earn</a></li>
+          <li><a href="plan.html"><i class="fas fa-file-invoice-dollar"></i> Billings</a></li>
+          <li><a href="#"><i class="fas fa-trophy"></i>Achievements</a></li>
+          <li><a href="referal.html"><i class="fas fa-users"></i> Referral Program</a></li>
+          <li><a href="help.html"><i class="fas fa-circle-question"></i> Help</a></li>
+          <li><a href="login.html"><i class="fas fa-right-from-bracket"></i>Log Out</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+ 
+      
+      <section class="content">
+        <div class="heading">Your Earning</div>
+
+        <!-- Earnings Section -->
+        <div class="earnings">
+          <div class="balance card">
+            <h2>0.00 $</h2>
+            <p>Balance</p>
+            <div class="actions">
+              <button class="btn withdraw"><i class="fas fa-wallet"></i>Withdraw</button>
+              <button class="btn earn-more"><i class="fas fa-coins"></i>Deposite</button>
+            </div>
+          </div>
+          <div class="weekly-earnings card">
+            <h3>0.00 $</h3>
+            <p>This week</p>
+            <div class="progress-bar"></div>
+          </div>
+          
+          <div class="last-withdrawal card">
+            <h3>Last Withdrawal</h3>
+            <p>0.00 USD</p>
+            <small>You've reached 0% of the payment threshold</small>
+          </div>
+          
+        </div>
+       
+        <div class="actions-section">
+          <button class="btn action">Verify your email</button>
+          <button class="btn action">Trustpilot Reviews</button>
+          <button class="btn action">Payment Proofs</button>
+        </div>
+
+        <br>
+    </section>
+    
+
+ </main>
+ </div>
+ <div class="contentes">
+        <!-- Your main page content goes here -->
+      </div>
+      
+      <footer class="footer">
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+      </footer>
+     
+     
+     
+      
+
+     
+      
+      <script>
+
+
+
+// For  monthly withdrawal 
+// For  monthly withdrawal 
+// For  monthly withdrawal 
+// For  monthly withdrawal 
+// For  monthly withdrawal 
+
+ // Check if a balance already exists in localStorage
+let currentBalance = parseFloat(localStorage.getItem('balance')) || 15253.045;
+
+// Function to update the balance
+function updateBalance() {
+  // Generate a random value between 0.1 and 1 (inclusive)
+  const increment = (Math.random() * (1 - 0.1) + 0.1).toFixed(2);
+
+  // Update the balance by the increment value
+  currentBalance += parseFloat(increment);
+
+  // Update the displayed balance in the HTML
+  document.getElementById('balance-value').textContent = `${currentBalance.toFixed(2)} $`;
+
+  // Store the updated balance in localStorage so it persists on page refresh
+  localStorage.setItem('balance', currentBalance.toFixed(2));
+}
+
+// Call the updateBalance function every 10 seconds (10000 ms)
+setInterval(updateBalance, 10000);
+
+// Display the current balance when the page loads
+document.getElementById('balance-value').textContent = `${currentBalance.toFixed(2)} $`;
+
+
+
+
+
+
+
+// For  monthly withdrawal        
+// For  monthly withdrawal 
+// For  monthly withdrawal 
+// For  monthly withdrawal 
+
+// Function to simulate the random increase of the withdrawal amount
+function increaseWithdrawal() {
+  // Get the current withdrawal amount from localStorage or set default if not found
+  let currentAmount = parseFloat(localStorage.getItem("withdrawalAmount") || "3571.093");
+
+  // Generate a random increase between 0.1 and 2
+  let randomIncrease = (Math.random() * (2 - 0.1) + 0.1).toFixed(3);  // Generates a number between 0.1 and 2 with 3 decimal places
+  
+  // Increase the withdrawal amount
+  currentAmount += parseFloat(randomIncrease);
+
+  // Update the value in the page
+  document.getElementById("withdrawalAmount").textContent = currentAmount.toFixed(3) + " USD";
+
+  // Save the updated amount to localStorage
+  localStorage.setItem("withdrawalAmount", currentAmount.toFixed(3));
+}
+
+// Call the function every 20 seconds
+setInterval(increaseWithdrawal, 20000);
+
+// Call the function once on page load to set the initial value
+increaseWithdrawal();
+
+
+
+
+        // JavaScript for Interactive Behavior
+      
+        // Toggle Notification Popup
+        const bellIcon = document.querySelector('.bell i');
+        const notificationPopup = document.querySelector('.notification-popup');
+      
+        bellIcon.addEventListener('click', () => {
+          notificationPopup.classList.toggle('active');
+        });
+      
+        // Toggle Dropdown Menu
+        const userIcon = document.querySelector('.user-dropdown i');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+      
+        userIcon.addEventListener('click', () => {
+          dropdownMenu.classList.toggle('active');
+        });
+      
+        // Close popups when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!bellIcon.contains(e.target) && !notificationPopup.contains(e.target)) {
+            notificationPopup.classList.remove('active');
+          }
+          if (!userIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('active');
+          }
+        });
+      </script>
+      
+</body>
+</html>
