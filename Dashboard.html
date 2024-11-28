@@ -11,16 +11,29 @@
 
 <body>
   <div class="navbar">
+
+    <div class="menu-toggle" id="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <ul class="nav-linkss" id="nav-linkss">
+      <li><a href="dashboard.html" class="active"><i class="fas fa-house"></i> Dashboard</a></li>
+      <li><a href="earn.html"><i class="fas fa-coins"></i> Earn</a></li>
+      <li><a href="plan.html"><i class="fas fa-file-invoice-dollar"></i> Billings</a></li>
+      <li><a href="#"><i class="fas fa-trophy"></i> Achievements</a></li>
+      <li><a href="referal.html"><i class="fas fa-users"></i> Referral Program</a></li>
+      <li><a href="help.html"><i class="fas fa-circle-question"></i> Help</a></li>
+      <li><a href="login.html"><i class="fas fa-right-from-bracket"></i> Log Out</a></li>
+    </ul>
     <!-- Logo -->
     <div class="logo">
       <img src="images (1).png" alt="Logo Image" class="logo-img">
       <span>Dancini Thay</span>
     </div>
     
-    <header>
-      <div class="profile">
-        <span></span>
-      </div>
+    
     </header>
     <!-- Icons Section -->
     <div class="nav-icons">
@@ -65,7 +78,7 @@
           <li><a href="plan.html"><i class="fas fa-file-invoice-dollar"></i> Billings</a></li>
           <li><a href="#"><i class="fas fa-trophy"></i>Achievements</a></li>
           <li><a href="referal.html"><i class="fas fa-users"></i> Referral Program</a></li>
-          <li><a href="help.html"><i class="fas fa-circle-question"></i> Help</a></li>
+          <li><a href="help.html"><i class="fas fa-circle-question"></i> Help</a></li><br><br><brr><br><br><br><br><br><br><br>
           <li><a href="login.html"><i class="fas fa-right-from-bracket"></i>Log Out</a></li>
         </ul>
       </nav>
@@ -88,27 +101,33 @@
               <button class="btn earn-more"><i class="fas fa-coins"></i>Deposite</button>
             </div>
           </div>
-          <div class="weekly-earnings card">
-            <h3>0.00 $</h3>
-            <p>This week</p>
-            <div class="progress-bar"></div>
-          </div>
-          
+         
           <div class="last-withdrawal card">
             <h3>Last Withdrawal</h3>
             <p>0.00 USD</p>
             <small>You've reached 0% of the payment threshold</small>
           </div>
-          
+         
+           <div class="weekly-earnings card">
+            <h3>0.00 $</h3>
+            <p>This week</p>
+            <div class="progress-bar"></div>
+          </div>
         </div>
        
         <div class="actions-section">
           <button class="btn action">Verify your email</button>
           <button class="btn action">Trustpilot Reviews</button>
           <button class="btn action">Payment Proofs</button>
-        </div>
+        </div> 
 
-        <br>
+        <div class="earnings">
+          <div class="last-withdrawal card">
+              <h3>Last Withdrawal</h3>
+              <h2 id="balance">1800.00 $</h2>
+              <small id="threshold">You've reached 0% of the payment threshold</small>
+          </div>
+      </div>
     </section>
     
 
@@ -130,103 +149,76 @@
       
       <script>
 
+// Get the balance element and threshold element
+const balanceElement = document.getElementById("balance");
+const thresholdElement = document.getElementById("threshold");
 
+// Set the initial balance if it doesn't exist in localStorage
+let currentBalance = parseFloat(localStorage.getItem("balance")) || 1800; // Default is 1800 if not found
 
-// For  monthly withdrawal 
-// For  monthly withdrawal 
-// For  monthly withdrawal 
-// For  monthly withdrawal 
-// For  monthly withdrawal 
-
- // Check if a balance already exists in localStorage
-let currentBalance = parseFloat(localStorage.getItem('balance')) || 15253.045;
-
-// Function to update the balance
+// Function to update the balance displayed on the page
 function updateBalance() {
-  // Generate a random value between 0.1 and 1 (inclusive)
-  const increment = (Math.random() * (1 - 0.1) + 0.1).toFixed(2);
+    balanceElement.textContent = `${currentBalance.toFixed(2)} $`;
 
-  // Update the balance by the increment value
-  currentBalance += parseFloat(increment);
-
-  // Update the displayed balance in the HTML
-  document.getElementById('balance-value').textContent = `${currentBalance.toFixed(2)} $`;
-
-  // Store the updated balance in localStorage so it persists on page refresh
-  localStorage.setItem('balance', currentBalance.toFixed(2));
+    // Update the threshold message (example: 10,000 as threshold)
+    let threshold = 10000;
+    let percentage = (currentBalance / threshold) * 100;
+    thresholdElement.textContent = `You've reached ${percentage.toFixed(2)}% of the payment threshold`;
 }
 
-// Call the updateBalance function every 10 seconds (10000 ms)
-setInterval(updateBalance, 10000);
+// Function to increase balance randomly by 1 to 20
+function increaseBalance() {
+    const increaseAmount = Math.floor(Math.random() * 20) + 1; // Random number between 1 and 20
+    currentBalance += increaseAmount;
+    
+    // Save the updated balance to localStorage
+    localStorage.setItem("balance", currentBalance);
 
-// Display the current balance when the page loads
-document.getElementById('balance-value').textContent = `${currentBalance.toFixed(2)} $`;
-
-
-
-
-
-
-
-// For  monthly withdrawal        
-// For  monthly withdrawal 
-// For  monthly withdrawal 
-// For  monthly withdrawal 
-
-// Function to simulate the random increase of the withdrawal amount
-function increaseWithdrawal() {
-  // Get the current withdrawal amount from localStorage or set default if not found
-  let currentAmount = parseFloat(localStorage.getItem("withdrawalAmount") || "3571.093");
-
-  // Generate a random increase between 0.1 and 2
-  let randomIncrease = (Math.random() * (2 - 0.1) + 0.1).toFixed(3);  // Generates a number between 0.1 and 2 with 3 decimal places
-  
-  // Increase the withdrawal amount
-  currentAmount += parseFloat(randomIncrease);
-
-  // Update the value in the page
-  document.getElementById("withdrawalAmount").textContent = currentAmount.toFixed(3) + " USD";
-
-  // Save the updated amount to localStorage
-  localStorage.setItem("withdrawalAmount", currentAmount.toFixed(3));
+    // Update the balance display
+    updateBalance();
 }
 
-// Call the function every 20 seconds
-setInterval(increaseWithdrawal, 20000);
+// Call updateBalance to initialize the displayed value on page load
+updateBalance();
 
-// Call the function once on page load to set the initial value
-increaseWithdrawal();
+// Set an interval to increase the balance every 10 seconds
+setInterval(increaseBalance, 10000);
+document.addEventListener("DOMContentLoaded", () => {
+      // Bell icon click logic for notifications
+      const bellIcon = document.querySelector('.bell i');
+      const notificationPopup = document.querySelector('.notification-popup');
+      bellIcon?.addEventListener('click', () => {
+        notificationPopup.classList.toggle('active');
+      });
 
+      // User dropdown click logic
+      const userIcon = document.querySelector('.user-dropdown i');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      userIcon?.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('active');
+      });
 
+      // Close dropdown and notification if clicked outside
+      document.addEventListener('click', (e) => {
+        if (!bellIcon?.contains(e.target) && !notificationPopup?.contains(e.target)) {
+          notificationPopup?.classList.remove('active');
+        }
+        if (!userIcon?.contains(e.target) && !dropdownMenu?.contains(e.target)) {
+          dropdownMenu?.classList.remove('active');
+        }
+      });
 
-
-        // JavaScript for Interactive Behavior
-      
-        // Toggle Notification Popup
-        const bellIcon = document.querySelector('.bell i');
-        const notificationPopup = document.querySelector('.notification-popup');
-      
-        bellIcon.addEventListener('click', () => {
-          notificationPopup.classList.toggle('active');
-        });
-      
-        // Toggle Dropdown Menu
-        const userIcon = document.querySelector('.user-dropdown i');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-      
-        userIcon.addEventListener('click', () => {
-          dropdownMenu.classList.toggle('active');
-        });
-      
-        // Close popups when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!bellIcon.contains(e.target) && !notificationPopup.contains(e.target)) {
-            notificationPopup.classList.remove('active');
-          }
-          if (!userIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.remove('active');
-          }
-        });
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinkss = document.getElementById("nav-linkss");
+      menuToggle.addEventListener("click", () => {
+        navLinkss.classList.toggle("show");
+        const bars = menuToggle.querySelectorAll(".bar");
+        bars[0].classList.toggle("rotate1");
+        bars[1].classList.toggle("rotate2");
+        bars[2].classList.toggle("rotate3");
+      });
+    });
       </script>
       
 </body>
