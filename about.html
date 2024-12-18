@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Section */
+        .header {
+            background: #3697ff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            width: fit-content;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background: #fff;
+        }
+
+        .about-content {
+            flex: 1 1 50%;
+            padding: 20px;
+            min-width: 300px;
+        }
+
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-img {
+            flex: 1 1 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Team Section */
+        .team {
+            text-align: center;
+            padding: 30px;
+            background: #f2f2f2;
+        }
+
+        .team h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+
+        .team-member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            margin-bottom: 5px;
+            color: #007bff;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Footer Section */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content {
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .team-member {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>About Us</h1>
+        <p>Learn more about who we are and what we do</p>
+    </div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2>Who We Are</h2>
+            <p>We are a passionate team dedicated to delivering the best solutions to our clients. Our goal is to create outstanding user experiences and innovative solutions tailored to your needs.</p>
+            <p>With years of experience, we aim to bridge the gap between technology and people, ensuring growth and success for businesses and individuals.</p>
+        </div>
+        <div class="about-img">
+            <img src="12.jpg" alt="Team Image">
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <h2>Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="12.jpg" alt="John Doe">
+                <h3>John Doe</h3>
+                <p>CEO & Founder</p>
+            </div>
+            <div class="team-member">
+                <img src="12.jpg" alt="Jane Smith">
+                <h3>Jane Smith</h3>
+                <p>Lead Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="12.jpg" alt="Emily Johnson">
+                <h3>Emily Johnson</h3>
+                <p>Project Manager</p>
+            </div>
+            <div class="team-member">
+                <img src="12.jpg" alt="Michael Brown">
+                <h3>Michael Brown</h3>
+                <p>UI/UX Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

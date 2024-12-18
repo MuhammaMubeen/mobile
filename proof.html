@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Withdrawal Log</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1e9aff;
+      font-weight: 5000;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      background: linear-gradient(to right, #42a5f5, #1565c0);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: linear-gradient(to right, #42a5f5, #1565c0);
+    }
+
+    .withdrawal-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .withdrawal-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .withdrawal-item:last-child {
+      border-bottom: none;
+    }
+
+    .username {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .amount {
+      font-weight: bold;
+      color: #ff0000;
+    }
+
+    .show-more {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .show-more:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+
+      
+      
+
+      .withdrawal-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .username {
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+     
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="back-button">← Back</a>
+
+    <!-- Logo Section -->
+    <div class="logo">
+      <img src="images (1).png" alt="Logo"> <!-- Replace with your logo URL -->
+    </div>
+
+    
+    <!-- Page Heading -->
+    <h1>Live Withdrawal Log</h1>
+
+    <!-- Withdrawal List -->
+    <ul class="withdrawal-list" id="withdrawalList">
+      <!-- Dynamic withdrawal list will be added here -->
+    </ul>
+
+    <!-- Show More Button -->
+    <a href="javascript:void(0)" class="show-more" id="showMoreButton">Show More</a>
+  </div>
+
+  <script>
+    // Sample fake user data
+    const fakeUsers = [
+      "John Doe", "Jane Smith", "Michael Brown", "Emily Johnson", "Chris Davis",
+      "Sarah Wilson", "David Clark", "Emma Lewis", "Daniel Hall", "Sophia Young",
+      "Matthew Turner", "Olivia Adams", "Ethan Baker", "Isabella Scott",
+      "Liam Carter", "Ava Lee", "Noah Walker", "Mia Perez", "Lucas Green",
+      "Charlotte Evans", "Mason Robinson", "Amelia Hughes", "Elijah Hill",
+      "Harper Collins", "James Cooper", "Evelyn Stewart", "Benjamin Morris",
+      "Abigail Bell", "Alexander Reed", "Ella Ward"
+    ];
+
+    let currentIndex = 0;
+
+    // Generate random withdrawal data
+    function generateRandomWithdrawals(count) {
+      const withdrawalList = document.getElementById("withdrawalList");
+
+      for (let i = 0; i < count; i++) {
+        const user = fakeUsers[Math.floor(Math.random() * fakeUsers.length)];
+        const amount = (Math.random() * (300 - 20) + 20).toFixed(2); // Random amount between $20 and $300
+
+        // Create withdrawal item
+        const listItem = document.createElement("li");
+        listItem.classList.add("withdrawal-item");
+
+        listItem.innerHTML = `
+          <span class="username">${user}</span>
+          <span class="amount">$${amount}</span>
+        `;
+
+        // Add item to the list
+        withdrawalList.appendChild(listItem);
+      }
+    }
+
+    // Show initial 20 withdrawals
+    generateRandomWithdrawals(20);
+
+    // Show more withdrawals when button is clicked
+    document.getElementById('showMoreButton').addEventListener('click', function() {
+      generateRandomWithdrawals(10); // Generate 10 more withdrawals
+    });
+  </script>
+
+</body>
+</html>

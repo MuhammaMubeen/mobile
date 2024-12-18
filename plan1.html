@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Transfer Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 400px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+.logo { justify-content: center;
+    align-items: center;
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+        }
+
+input, select, textarea {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button { justify-content: center;
+    align-items: center;
+    width: 70%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+<body>
+    <div class="container">
+        <h2>Transfer Money</h2>
+
+        <!-- Select Wallet -->
+        <label for="wallet-method">Select Payment Method:</label>
+        <select id="wallet-method" onchange="showWallet()">
+            <option value="">--Select--</option>
+            <option value="BTC">BTC</option>
+            <option value="ETH">ETH</option>
+            <option value="USDT">USDT</option>
+        </select>
+
+        <!-- Wallet Address -->
+        <div id="wallet-address" style="display: none;">
+            <p>copy and make payment:</p>
+            <input type="text" id="wallet-address-text" readonly />
+            <button onclick="copyAddress()">Copy</button>
+        </div>
+
+        <!-- Form Inputs -->
+        <input type="text" id="name" placeholder="Name" />
+        <input type="email" id="email" placeholder="Email" />
+        <textarea id="description" placeholder="Description"></textarea>
+
+        <!-- Upload File -->
+        <label for="file-upload">Choose Photo:</label>
+        <input type="file" id="file-upload" />
+
+        <!-- Buttons -->
+        <button onclick="submitForm()">Transfer</button>
+        <button onclick="goBack()"><a style="text-decoration: none; color: #ffffff;" href="Dashboard.html"> Back</a></button>
+
+        <!-- Notification -->
+        <p id="notification"></p>
+    </div>
+    <script>
+
+const walletAddresses = {
+    BTC: "bc1qvsfe22lwmg84u82d20nrzpcusf8vpfc5ww4kt3",
+    ETH: "0xA495e43400EAEd62b40C722A85A2096593e57550",
+    USDT: "0xA495e43400EAEd62b40C722A85A2096593e57550"
+};
+
+function showWallet() {
+    const method = document.getElementById('wallet-method').value;
+    if (method) {
+        document.getElementById('wallet-address').style.display = 'block';
+        document.getElementById('wallet-address-text').value = walletAddresses[method];
+    } else {
+        document.getElementById('wallet-address').style.display = 'none';
+    }
+}
+
+function copyAddress() {
+    const address = document.getElementById('wallet-address-text');
+    address.select();
+    document.execCommand("copy");
+    alert("Wallet address copied!");
+}
+
+function submitForm() {
+    alert("Your withdrawal was successful! Payment will be sent in 24 hours.");
+}
+
+function goBack() {
+    window.history.back();
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Program Details</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .referral-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .card {
+            flex: 1 1 calc(50% - 1rem);
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            background-color: #6c757d;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Join Our Referral Program!</h1>
+    </header>
+
+    <!-- Main Content -->
+    <section class="container">
+        <a href="#" class="back-btn">&larr; Back</a>
+        <p>Share the love and earn rewards! Refer friends, family, or colleagues to our program and earn exciting benefits. The more you refer, the more you earn!</p>
+
+        <div class="referral-details">
+            <!-- Referral Card 1 -->
+            <div class="card">
+                <h2>How It Works</h2>
+                <p>Invite others using your unique referral code. When they sign up and complete their first purchase, you earn points or rewards instantly.</p>
+            </div>
+
+            <!-- Referral Card 2 -->
+            <div class="card">
+                <h2>Earn Rewards</h2>
+                <p>For every successful referral, earn cash, discounts, or exclusive perks. Your rewards grow as your referrals increase.</p>
+            </div>
+
+            <!-- Referral Card 3 -->
+            <div class="card">
+                <h2>Track Progress</h2>
+                <p>Use our referral dashboard to track how many people you've referred and view your earned rewards.</p>
+            </div>
+
+            <!-- Referral Card 4 -->
+            <div class="card">
+                <h2>Start Referring Now</h2>
+                <p>Generate your referral link, share it, and start earning today. It's easy, fun, and rewarding!</p>
+                <a href="#" class="btn">Generate My Link</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

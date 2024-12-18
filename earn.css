@@ -1,0 +1,2952 @@
+ /* General Reset */
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    color: #333;
+  }
+  .navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+    padding: 10px 20px;
+    margin: 0px;
+    background-color: white;
+    color: rgb(236, 0, 0);
+  }
+ /* Style for the logo container */
+.logo {
+display: flex;
+align-items: center;
+gap: 10px; /* Space between image and text */
+font-size: 1.6em;
+font-weight: bolder;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color:  #0f7ff6c5;
+}
+
+/* Style for the logo image */
+.logo-img {
+width: 40px; /* Adjust width to fit */
+height: auto; /* Maintain aspect ratio */
+object-fit: contain; /* Ensure the image is fully visible */
+border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+  .nav-icons {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav-icons i {
+    font-size: 1.6em;
+    cursor: pointer;
+    position: relative;
+  }
+  .user-dropdown {
+    position: relative;
+  }
+  /* Notification Popup */
+  .notification-popup {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 300px;
+    height: 20%;
+    padding: 15px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 10;
+  }
+  .notification-popup::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }
+  .nav-icons .bell i {
+    font-size: 1.6em;
+    cursor: pointer;
+    position: relative;
+    color: white; /* Inner fill color */
+    -webkit-text-stroke: 1px black; /* Outline color */
+  }
+  /* Notification Badge */
+.bell .notification-badge {
+position: absolute;
+top: 15px;
+right: 90px;
+background-color: red;
+color: white;
+font-size: 0.8em;
+font-weight: bold;
+padding: 3px 7px;
+border-radius: 50%;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+  .nav-icons .user-dropdown i {
+    font-size: 1.6em;
+    cursor: pointer;
+    color: blue; /* Blue user icon */
+    position: relative;
+  }
+  
+  .user-dropdown.active i::after {
+    content: " ▼"; /* Arrow pointing down */
+    font-size: 0.8em;
+    margin-left: 5px;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+  }
+  .dropdown-menu a:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Add Interactions */
+  .notification-popup.active,
+  .dropdown-menu.active {
+    display: block;
+  }
+
+
+
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+  flex-direction: row; /* Default for large screens */
+}
+
+/* Sidebar */
+.sidebar {
+  
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  background: linear-gradient(135deg, white, white);
+  padding: 20px;
+  box-shadow: transparent;
+  color: #ff0000;
+}
+
+.sidebar nav ul {
+  margin-left: -40px;
+  margin-top: 4%;
+  position: fixed;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #000000; /* Default black color */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 10px;
+  border-radius: 5px;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+.sidebar nav ul li:hover {
+    background-color: #859ee51e;
+    color: #007bff;
+}
+
+.sidebar nav ul li.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+.sidebar .logo img {
+  width: 150px;
+  margin-bottom: 30px;
+}
+
+  /* Main Content */
+  .main-content {
+    margin-top: 40px;
+    padding: 80px 20px;
+  }
+
+  .content-box {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .header-text h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .header-text p {
+    font-size: 1.2rem;
+    color: #007bff;
+  }
+
+
+  
+  /* Boxes */
+  .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .box {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  }
+
+  
+  .box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .box h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .box p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  .box button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .box button:hover {
+    background: #0056b3;
+  }
+  
+  .bodyes{
+    width: 100%;
+  }
+  /* Responsive */
+  @media (min-width: 290px) {
+    /* General Reset */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+      color: #333;
+      overflow: hidden; /* Prevent unwanted scrolling */
+    }
+
+  /* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+  position: fixed; 
+   background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+  display: flex;
+  top: 0;
+  width: 100%;
+  height: 30px; /* Define consistent navbar height */
+  z-index: 1000;
+
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 10px 10px 10px 10px;
+}
+
+.logo {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  width: 25px; /* Smaller logo */
+}
+
+.nav-icons {
+  margin-right: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-icons i {
+  font-size: 1em;
+}
+
+.notification-popup {
+  width: 120px;
+  height: auto;
+  font-size: 0.5em;
+  top: 44px;
+  right: 45px;
+}
+.nav-icons .bell i {
+  font-size: 1.1em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+
+.bell .notification-badge {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  background-color: red;
+  color: white;
+  font-size: 0.5em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+  
+  
+.nav-icons .user-dropdown i {
+  font-size: 1.1em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 26px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 0.5em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+    /* Menu toggle button styles */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      width: 20px;
+      height: 15px;
+      justify-content: space-between;
+    }
+
+    .bar {
+      height: 4px;
+      background-color: #39aafb;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    /* Nav links styles */
+    .nav-linkss {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: none; /* Initially hidden */
+      flex-direction: column;
+      position: absolute;
+      top: 43px;
+      left: 0%;
+
+      width: 100%;
+      border-radius: 5px;
+      background: linear-gradient(to right, #ffffff,#93d2fe 60%, #ffffff);
+      animation: upDown 1s ease-in-out;
+    }
+
+    .nav-linkss li {
+      text-align: left; /* Aligns text to the left */
+      padding: 10px;
+      border-top: 0.3px solid linear-gradient(to center, transparent 20%,#ffffff 60%, transparent 20%);
+  }
+
+  .nav-linkss li a {
+    text-align: center;
+    font-weight: 300;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 11px;
+    display: block;
+    transition: color 0.3s ease;
+  }
+
+  .nav-linkss li a:hover {
+    color: #f80000; /* Hover color */
+  }
+
+    /* Animations */
+    .nav-linkss.show {
+      display: flex; /* Display the links */
+    }
+
+    .bar.rotate1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .bar.rotate2 {
+      opacity: 0;
+    }
+
+    .bar.rotate3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  .sidebar {
+    display: none;
+  }
+
+
+/* Main Content */
+.main-content {
+  margin-top: 0px;
+  padding: 80px 20px;
+ /* Adjust for navbar */
+  max-height: calc(100vh - 60px); /* Avoid overflowing beyond viewport */
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 1rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 0.7rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+.box {
+  background:  linear-gradient(to bottom, #e3f2fd, #ffffff);
+  padding: 8px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 0.8rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.7rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+  height: 100%;
+}
+
+
+  }
+
+
+
+
+  @media (min-width: 350px) {
+   
+/* Main Content */
+.main-content {
+  margin-top: 0px;
+  padding: 80px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 0.7rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+  height: 100%;
+}
+
+
+  }
+
+  @media (min-width: 450px) {
+    
+
+/* Main Content */
+.main-content {
+  margin-top: 0px;
+  padding: 80px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 0.7rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  margin-left: 20px;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+
+  
+  @media (min-width: 550px) {
+    /* General Reset */
+ body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+  color: #333;
+}
+
+  /* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+
+.logo {
+  
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  margin-left: 10px;
+  width: 30px; /* Smaller logo */
+}
+
+.nav-icons {
+  margin-right: 29px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.nav-icons i {
+  font-size: 0.6em;
+  cursor: pointer;
+  position: relative;
+}
+.user-dropdown {
+  position: relative;
+}
+/* Notification Popup */
+.notification-popup {
+  width: 200px;
+  height: auto;
+  font-size: 0.77em;
+  font-weight: 100;
+  top: 50px;
+  right: 40px;
+}
+
+.nav-icons .bell i {
+  font-size: 1.1em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+/* Notification Badge */
+
+.bell .notification-badge {
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  background-color: red;
+  color: white;
+  font-size: 0.5em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.nav-icons .user-dropdown i {
+  font-size: 1.1em;
+  right: 10px;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.75em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+    /* Menu toggle button styles */
+    .menu-toggle {
+      display: none;
+    }
+
+ 
+/* Dashboard layout */
+.dashboard {
+  display: flex;
+  flex-direction: row; /* Default for large screens */
+  padding-top: 60px;
+  min-height: 100vh; /* To avoid overlap with fixed navbar */
+}
+
+.sidebar {
+  display: flex;
+  width: 25.8%;
+  height: 100%;
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 20px; /* Below the navbar */
+  left: 0;
+  background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+  margin-left: 10px;
+    margin-top: 44px;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-left: -55px;
+  margin-bottom: 7px;
+
+}
+
+.sidebar nav ul li a {
+  margin-bottom: 2px;
+  padding: 10px 10px 5px 10px;
+  gap: 10px;
+  font-size: 11px; 
+  font-weight: 300;/* Adjust font size */
+  text-decoration: none;
+  margin-left: 8px;
+  color: #333; /* Ensure text color contrasts */
+}
+
+
+.sidebar .logo img {
+  width: 120px; /* Smaller logo for sidebar */
+}
+
+
+
+/* Main Content */
+.main-content {
+  margin-left: 29%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 0.7rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+
+    
+
+  
+
+ /* Responsive */
+ @media (min-width: 650px) {
+  .notification-popup {
+    width: 170px;
+    height: auto;
+    font-size: 0.77em;
+    font-weight: 100;
+    top: 50px;
+    right: 60px;
+  }
+.sidebar {
+  display: flex;
+  width: 25%;
+  height: 100%;
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 20px; /* Below the navbar */
+  left: 0;
+  background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+  margin-left: 10px;
+    margin-top: 44px;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-left: -55px;
+  margin-bottom: 7px;
+
+}
+
+.sidebar nav ul li a {
+  margin-bottom: 2px;
+  padding: 10px 10px 5px 10px;
+  gap: 10px;
+  font-size: 11px; 
+  font-weight: 300;/* Adjust font size */
+  text-decoration: none;
+  margin-left: 8px;
+  color: #333; /* Ensure text color contrasts */
+}
+  /* Main Content */
+.main-content {
+  margin-left: 27%;
+  padding: 20px 20px;
+}
+
+}
+
+
+  @media (min-width: 750px) {
+    /* General Reset */
+ body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+  color: #333;
+}
+
+  /* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+.notification-popup {
+  width: 168px;
+  height: auto;
+  font-size: 0.7em;
+  top: 45px;
+  right: 70px;
+}
+    /* Menu toggle button styles */
+    .menu-toggle {
+      display: none;
+    }
+
+ 
+/* Dashboard layout */
+.dashboard {
+  display: flex;
+  flex-direction: row; /* Default for large screens */
+  padding-top: 60px;
+  min-height: 100vh; /* To avoid overlap with fixed navbar */
+}
+
+.sidebar {
+  display: flex;
+  width: 22.5%;
+  height: 100%;
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 20px; /* Below the navbar */
+  left: 0;
+  background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+  margin-left: 10px;
+    margin-top: 44px;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-left: -55px;
+  margin-bottom: 7px;
+
+}
+
+.sidebar nav ul li a {
+  margin-bottom: 2px;
+  padding: 10px 10px 5px 10px;
+  gap: 10px;
+  font-size: 12px; 
+  font-weight: 300;/* Adjust font size */
+  text-decoration: none;
+  margin-left: 8px;
+  color: #333; /* Ensure text color contrasts */
+}
+
+
+/* Main Content */
+.main-content {
+  margin-left: 25%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 0.7rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+
+  @media (min-width: 850px) {
+    /* General body styling */
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+    }
+     
+     body {
+      font-family: 'Arial', sans-serif; /* Simple, clean font */
+      line-height: 1.5; /* Better line height for readability */
+      background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+      color: #333; /* Dark text color */
+    }
+  /* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 12px 10px 12px 10px;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+
+.logo {
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  margin-left: 10px;
+  width: 30px; /* Smaller logo */
+}
+
+.nav-icons {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.nav-icons i {
+  font-size: 0.6em;
+  cursor: pointer;
+  position: relative;
+}
+.user-dropdown {
+  position: relative;
+}
+.notification-popup {
+  width: 168px;
+  height: auto;
+  font-size: 0.7em;
+  top: 45px;
+  right: 70px;
+}
+
+.nav-icons .bell i {
+  font-size: 1.1em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+/* Notification Badge */
+
+.bell .notification-badge {
+  position: absolute;
+  top: 10px;
+  right:73px;
+  background-color: red;
+  color: white;
+  font-size: 0.4em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.nav-icons .user-dropdown i {
+  font-size: 1.2em;
+  right: 10px;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.9em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+    /* Menu toggle button styles */
+    .menu-toggle {
+      display: none;
+    }
+
+ 
+.sidebar {
+  display: flex;
+  width: 19.6%;
+  height: 100%;
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 20px; /* Below the navbar */
+  left: 0;
+  background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+  margin-left: 10px;
+    margin-top: 44px;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-left: -55px;
+  margin-bottom: 1px;
+
+}
+
+.sidebar nav ul li a {
+  margin-bottom: 2px;
+  padding: 10px 10px 5px 10px;
+  gap: 10px;
+  font-size: 12px; 
+  font-weight: 300;/* Adjust font size */
+  text-decoration: none;
+  margin-left: 8px;
+  color: #333; /* Ensure text color contrasts */
+}
+
+
+
+/* Main Content */
+.main-content {
+  margin-left: 25%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 0.7rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+
+
+  @media (min-width: 950px) {
+ 
+    .notification-popup {
+      width: 168px;
+      height: auto;
+      font-size: 0.7em;
+      top: 45px;
+      right: 70px;
+    }
+ 
+/* Dashboard layout */
+.dashboard {
+  display: flex;
+  flex-direction: row; /* Default for large screens */
+  padding-top: 60px;
+  min-height: 100vh; /* To avoid overlap with fixed navbar */
+}
+
+.sidebar {
+  display: flex;
+  width: 17%;
+  height: 100%;
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 20px; /* Below the navbar */
+  left: 0;
+  background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+  margin-left: 10px;
+    margin-top: 44px;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-left: -57px;
+  margin-bottom: 1px;
+
+}
+
+.sidebar nav ul li a {
+  margin-bottom: 2px;
+  padding: 10px 10px 5px 10px;
+  gap: 10px;
+  font-size: 12px; 
+  font-weight: 300;/* Adjust font size */
+  text-decoration: none;
+  margin-left: 8px;
+  color: #333; /* Ensure text color contrasts */
+}
+
+
+
+/* Main Content */
+.main-content {
+  margin-left: 23%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 1.7rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 0.7rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+
+
+
+  @media (min-width: 1000px) {
+       /* General body styling */
+       html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+      }
+       
+       body {
+        font-family: 'Arial', sans-serif; /* Simple, clean font */
+        line-height: 1.5; /* Better line height for readability */
+        background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+        color: #333; /* Dark text color */
+      }
+    /* General body adjustments */
+  
+  /* Navbar styling */
+  .navbar {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+    padding: 12px 10px 12px 10px;
+    z-index: 1000; /* Ensure navbar stays on top */
+  }
+  
+  
+  .logo {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .logo-img {
+    margin-left: 10px;
+    width: 34px; /* Smaller logo */
+  }
+  
+  .nav-icons {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .nav-icons i {
+    font-size: 0.6em;
+    cursor: pointer;
+    position: relative;
+  }
+  .user-dropdown {
+    position: relative;
+  }
+  /* Notification Popup */
+  .notification-popup {
+    width: 170px;
+    height: auto;
+    font-size: 0.8em;
+    top: 50px;
+    right: 60px;
+  }
+  
+  .nav-icons .bell i {
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    color: white; /* Inner fill color */
+    -webkit-text-stroke: 1px black; /* Outline color */
+  }
+  /* Notification Badge */
+  
+  .bell .notification-badge {
+    position: absolute;
+    top: 10px;
+    right:73px;
+    background-color: red;
+    color: white;
+    font-size: 0.5em;
+    font-weight: bold;
+    padding: 1px 5px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .nav-icons .user-dropdown i {
+    font-size: 1.3em;
+    right: 10px;
+    cursor: pointer;
+    color: blue; /* Blue user icon */
+    position: relative;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 0.9em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+      /* Menu toggle button styles */
+      .menu-toggle {
+        display: none;
+      }
+  
+   
+    
+.sidebar {
+  display: flex;
+  width: 17%;
+  height: 100%;
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 20px; /* Below the navbar */
+  left: 0;
+  background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+  margin-left: 10px;
+  margin-top: 42px;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-left: -57px;
+  margin-bottom: 1px;
+
+}
+
+.sidebar nav ul li a {
+  margin-bottom: 2px;
+  padding: 10px 10px 5px 10px;
+  gap: 10px;
+  font-size: 13px; 
+  font-weight: 300;/* Adjust font size */
+  text-decoration: none;
+  margin-left: 8px;
+  color: #333; /* Ensure text color contrasts */
+}
+/* Main Content */
+.main-content {
+  margin-left: 23%;
+  padding: 20px 20px;
+}
+
+}
+  @media (min-width: 1100px) {
+   /* General body styling */
+   html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+  }
+   
+   body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    line-height: 1.5; /* Better line height for readability */
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+    color: #333; /* Dark text color */
+  }
+/* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+position: fixed;
+width: 100%;
+background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+padding: 14px 10px 13px 10px;
+z-index: 1000; /* Ensure navbar stays on top */
+}
+
+
+.logo {
+font-size: 1.6em;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.logo-img {
+margin-left: 10px;
+width: 35px; /* Smaller logo */
+}
+
+.nav-icons {
+margin-right: 30px;
+display: flex;
+align-items: center;
+gap: 25px;
+}
+.nav-icons i {
+font-size: 0.6em;
+cursor: pointer;
+position: relative;
+}
+.user-dropdown {
+position: relative;
+}
+/* Notification Popup */
+.notification-popup {
+width: 200px;
+height: auto;
+font-size: 0.9em;
+top: 50px;
+right: 70px;
+}
+
+.nav-icons .bell i {
+font-size: 1.4em;
+cursor: pointer;
+position: relative;
+color: white; /* Inner fill color */
+-webkit-text-stroke: 1px black; /* Outline color */
+}
+/* Notification Badge */
+
+.bell .notification-badge {
+position: absolute;
+top: 13px;
+right:77px;
+background-color: red;
+color: white;
+font-size: 0.6em;
+font-weight: bold;
+padding: 1px 5px;
+border-radius: 50%;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.nav-icons .user-dropdown i {
+font-size: 1.5em;
+right: 10px;
+cursor: pointer;
+color: blue; /* Blue user icon */
+position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+display: none;
+position: absolute;
+top: 30px;
+right: 10px;
+background-color: #fff;
+color: #333;
+font-size: 0.9em;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+overflow: hidden;
+z-index: 10;
+}
+.dropdown-menu a {
+display: block;
+padding: 10px 15px;
+text-decoration: none;
+color: #333;
+}
+
+  /* Menu toggle button styles */
+  .menu-toggle {
+    display: none;
+  }
+
+
+.sidebar {
+display: flex;
+width: 15%;
+height: 100%;
+box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+padding: 0 10px 10px 10px;
+position: fixed;
+top: 20px; /* Below the navbar */
+left: 0;
+background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+margin-left: 10px;
+  margin-top: 55px;
+list-style: none;
+}
+
+.sidebar nav ul li {
+margin-left: -53px;
+margin-bottom: 1px;
+
+}
+
+.sidebar nav ul li a {
+margin-top: 1px;
+padding: 10px 10px 5px 10px;
+gap: 10px;
+font-size: 13px; 
+font-weight: 300;/* Adjust font size */
+text-decoration: none;
+margin-left: 8px;
+color: #333; /* Ensure text color contrasts */
+}
+
+
+
+/* Main Content */
+.main-content {
+  margin-left: 25%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 1.9rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+
+
+
+  @media (min-width: 1200px) {
+    /* General body styling */
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+    }
+     
+     body {
+      font-family: 'Arial', sans-serif; /* Simple, clean font */
+      line-height: 1.5; /* Better line height for readability */
+      background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+      color: #333; /* Dark text color */
+    }
+  /* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 15px 10px 14px 10px;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+
+.logo {
+  font-size: 1.6em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  margin-left: 10px;
+  width: 35px; /* Smaller logo */
+}
+
+.nav-icons {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.nav-icons i {
+  font-size: 01.1em;
+  cursor: pointer;
+  position: relative;
+}
+.user-dropdown {
+  position: relative;
+}
+/* Notification Popup */
+/* Notification Popup */
+.notification-popup {
+  width: 260px;
+  height: auto;
+  font-size: 0.9em;
+  top: 50px;
+  right: 70px;
+  }
+  
+
+.nav-icons .bell i {
+  font-size: 1.5em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+/* Notification Badge */
+
+.bell .notification-badge {
+  position: absolute;
+  top: 14px;
+  right:76px;
+  background-color: red;
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.nav-icons .user-dropdown i {
+  font-size: 1.6em;
+  right: 10px;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.9em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+    /* Menu toggle button styles */
+    .menu-toggle {
+      display: none;
+    }
+
+ 
+  .sidebar {
+  display: flex;
+  width: 16.4%;
+  height: 100%;
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 20px; /* Below the navbar */
+  left: 0;
+  background: #ffffff; /* Background color for sidebar */
+}
+
+.sidebar nav ul {
+  margin-left: 10px;
+    margin-top: 52px;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-left: -53px;
+  margin-bottom: 1px;
+
+}
+
+.sidebar nav ul li a {
+  margin-top: 0px;
+  padding: 10px 10px 5px 10px;
+  gap: 10px;
+  font-size: 15px; 
+  font-weight: 300;/* Adjust font size */
+  text-decoration: none;
+  margin-left: 8px;
+  color: #333; /* Ensure text color contrasts */
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 23%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  background: #fff;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 2.2rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+
+  
+
+  @media (min-width: 1300px) {
+    /* Notification Popup */
+.notification-popup {
+  width: 270px;
+  height: auto;
+  font-size: 1em;
+  top: 50px;
+  right: 70px;
+  }
+  
+    .sidebar {
+      display: flex;
+      width: 16.4%;
+      height: 100%;
+      box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+      padding: 0 10px 10px 10px;
+      position: fixed;
+      top: 20px; /* Below the navbar */
+      left: 0;
+      background: #ffffff; /* Background color for sidebar */
+    }
+    
+    .sidebar nav ul {
+      margin-left: 10px;
+        margin-top: 52px;
+      list-style: none;
+    }
+    
+    .sidebar nav ul li {
+      margin-left: -53px;
+      margin-bottom: 1px;
+    
+    }
+    
+    .sidebar nav ul li a {
+      margin-top: 0px;
+      padding: 10px 10px 5px 10px;
+      gap: 10px;
+      font-size: 15px; 
+      font-weight: 300;/* Adjust font size */
+      text-decoration: none;
+      margin-left: 8px;
+      color: #333; /* Ensure text color contrasts */
+    }
+
+/* Main Content */
+.main-content {
+  margin-left: 20%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  background: transparent;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 2.2rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 1.24rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }
+ 
+
+   @media (min-width: 1400px) {
+  /* General body styling */
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+  }
+   
+   body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    line-height: 1.5; /* Better line height for readability */
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+    color: #333; /* Dark text color */
+  }
+/* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+position: fixed;
+width: 100%;
+background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+padding: 15px 10px 14px 10px;
+z-index: 1000; /* Ensure navbar stays on top */
+}
+
+
+.logo {
+font-size: 1.6em;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.logo-img {
+margin-left: 10px;
+width: 35px; /* Smaller logo */
+}
+
+.nav-icons {
+margin-right: 30px;
+display: flex;
+align-items: center;
+gap: 25px;
+}
+.nav-icons i {
+font-size: 1.1em;
+cursor: pointer;
+position: relative;
+}
+.user-dropdown {
+position: relative;
+}
+/* Notification Popup */
+.notification-popup {
+width: 320px;
+height: auto;
+font-size: 1em;
+top: 50px;
+right: 70px;
+}
+
+.nav-icons .bell i {
+font-size: 1.5em;
+cursor: pointer;
+position: relative;
+color: white; /* Inner fill color */
+-webkit-text-stroke: 1px black; /* Outline color */
+}
+/* Notification Badge */
+
+.bell .notification-badge {
+position: absolute;
+top: 14px;
+right:76px;
+background-color: red;
+color: white;
+font-size: 0.6em;
+font-weight: bold;
+padding: 1px 5px;
+border-radius: 50%;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.nav-icons .user-dropdown i {
+font-size: 1.6em;
+right: 10px;
+cursor: pointer;
+color: blue; /* Blue user icon */
+position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+display: none;
+position: absolute;
+top: 30px;
+right: 10px;
+background-color: #fff;
+color: #333;
+font-size: 0.9em;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+overflow: hidden;
+z-index: 10;
+}
+.dropdown-menu a {
+display: block;
+padding: 10px 15px;
+text-decoration: none;
+color: #333;
+}
+
+  /* Menu toggle button styles */
+  .menu-toggle {
+    display: none;
+  }
+
+
+  .sidebar {
+    display: flex;
+    width: 15.6%;
+    height: 100%;
+    box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+    padding: 0 10px 10px 10px;
+    position: fixed;
+    top: 20px; /* Below the navbar */
+    left: 0;
+    background: #ffffff; /* Background color for sidebar */
+  }
+  
+  .sidebar nav ul {
+    margin-left: 10px;
+      margin-top: 52px;
+    list-style: none;
+  }
+  
+  .sidebar nav ul li {
+    margin-left: -53px;
+    margin-bottom: 1px;
+  
+  }
+  
+  .sidebar nav ul li a {
+    margin-top: 0px;
+    padding: 10px 10px 5px 10px;
+    gap: 10px;
+    font-size: 16px; 
+    font-weight: 300;/* Adjust font size */
+    text-decoration: none;
+    margin-left: 8px;
+    color: #333; /* Ensure text color contrasts */
+  }
+
+}
+
+  @media (min-width: 1500px) {
+      /* General body styling */
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+      }
+       
+       body {
+        font-family: 'Arial', sans-serif; /* Simple, clean font */
+        line-height: 1.5; /* Better line height for readability */
+        background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+        color: #333; /* Dark text color */
+      }
+    /* General body adjustments */
+  
+  /* Navbar styling */
+  .navbar {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+    padding: 15px 10px 14px 10px;
+    z-index: 1000; /* Ensure navbar stays on top */
+  }
+  
+  
+  .logo {
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .logo-img {
+    margin-left: 10px;
+    width: 35px; /* Smaller logo */
+  }
+  
+  .nav-icons {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .nav-icons i {
+    font-size: 01.1em;
+    cursor: pointer;
+    position: relative;
+  }
+  .user-dropdown {
+    position: relative;
+  }
+  /* Notification Popup */
+  .notification-popup {
+    width: 300px;
+    height: auto;
+    font-size: 1.2em;
+    top: 50px;
+    right: 60px;
+  }
+  
+  .nav-icons .bell i {
+    font-size: 1.5em;
+    cursor: pointer;
+    position: relative;
+    color: white; /* Inner fill color */
+    -webkit-text-stroke: 1px black; /* Outline color */
+  }
+  /* Notification Badge */
+  
+  .bell .notification-badge {
+    position: absolute;
+    top: 14px;
+    right:76px;
+    background-color: red;
+    color: white;
+    font-size: 0.6em;
+    font-weight: bold;
+    padding: 1px 5px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .nav-icons .user-dropdown i {
+    font-size: 1.6em;
+    right: 10px;
+    cursor: pointer;
+    color: blue; /* Blue user icon */
+    position: relative;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+      /* Menu toggle button styles */
+      .menu-toggle {
+        display: none;
+      }
+  
+      .sidebar {
+        display: flex;
+        width: 15.8%;
+        height: 100%;
+        box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+        padding: 0 10px 10px 10px;
+        position: fixed;
+        top: 20px; /* Below the navbar */
+        left: 0;
+        background: #ffffff; /* Background color for sidebar */
+      }
+      
+      .sidebar nav ul {
+        margin-left: 10px;
+          margin-top: 52px;
+        list-style: none;
+      }
+      
+      .sidebar nav ul li {
+        margin-left: -53px;
+        margin-bottom: 1px;
+      
+      }
+      
+      .sidebar nav ul li a {
+        margin-top: 0px;
+        padding: 10px 10px 5px 10px;
+        gap: 10px;
+        font-size: 16px; 
+        font-weight: 300;/* Adjust font size */
+        text-decoration: none;
+        margin-left: 8px;
+        color: #333; /* Ensure text color contrasts */
+      }
+
+/* Main Content */
+.main-content {
+  margin-left: 18%;
+  padding: 20px 20px;
+}
+
+.content-box {
+  margin-top: 0px;
+  background: transparent;
+  padding: 5px;
+  margin-left: -5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: transparent;
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-text h1 {
+  font-size: 2.4rem;
+  color: #333;
+}
+
+.header-text p {
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+/* Boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+
+  gap: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px 5px 5px 5px;
+
+  border-radius: 10px;
+  box-shadow: transparent;
+
+}
+
+
+.box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.box h3 {
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: -5px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.box button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.box button a {
+  text-decoration: none;  /* Remove underline */
+  color: white;           /* Match text color */
+  display: inline-block;  /* Ensure proper button alignment */
+}
+
+.box button:hover {
+  background: #0056b3;
+}
+
+.bodyes{
+  width: 100%;
+ 
+}
+
+  }

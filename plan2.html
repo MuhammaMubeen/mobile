@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Instructions</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .transfer-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin: 0 auto 1.5rem;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2rem;
+        }
+
+        .details, .instructions {
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+
+        .paypal-info {
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Popup Notification */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 1.5rem;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .popup button {
+            margin-top: 1rem;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .transfer-container {
+                max-width: 90%;
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .details, .instructions {
+                margin: 1rem 0;
+            }
+
+            button {
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .transfer-container {
+                max-width: 95%;
+                padding: 0.8rem;
+            }
+
+            .details p, .instructions p {
+                font-size: 0.875rem;
+                margin: 0.5rem 0;
+            }
+
+            button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .paypal-info {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+ 
+    <div class="transfer-container">
+   <img src="images (1).png" alt="Logo" class="logo">
+        <h1>Transfer Instructions</h1>
+        <p>Please transfer the following amount to my PayPal account:</p>
+
+        <!-- Display Dynamic User Input -->
+        <div class="details">
+            <p><strong>Name:</strong> <span id="userName"></span></p>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+            <p><strong>Amount to Transfer:</strong> <span id="transferAmount"></span></p>
+        </div>
+
+        <div class="instructions">
+            <p>To proceed, please transfer the above amount to the following PayPal account:</p>
+            <p class="paypal-info">YOUR_PAYPAL_EMAIL@example.com</p>
+        </div>
+
+        <button id="transferBtn" onclick="handleTransfer()">Go to PayPal</button>
+    </div>
+
+    <!-- Popup Notification -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <p><strong>Thank you!</strong> Please wait 24 hours for verification.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+        // Get URL parameters to display user information
+        const urlParams = new URLSearchParams(window.location.search);
+        const amount = urlParams.get('amount') || '0';
+        const name = urlParams.get('name') || 'Unknown';
+        const email = urlParams.get('email') || 'No email provided';
+
+        // Update the page with the dynamic data
+        document.getElementById('transferAmount').textContent = `$${amount}`;
+        document.getElementById('userName').textContent = name;
+        document.getElementById('userEmail').textContent = email;
+
+        // Function to handle the transfer button click
+        function handleTransfer() {
+            // Set a flag in localStorage
+            localStorage.setItem('transferInitiated', 'true');
+            // Redirect to PayPal
+            window.location.href = 'https://www.paypal.com';
+        }
+
+        // Function to show the popup notification
+        function showPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+            // Clear the flag in localStorage
+            localStorage.removeItem('transferInitiated');
+        }
+
+        // Check if user has returned from PayPal
+        window.onload = function() {
+            if (localStorage.getItem('transferInitiated') === 'true') {
+                showPopup();
+            }
+        };
+    </script>
+
+</body>
+</html>

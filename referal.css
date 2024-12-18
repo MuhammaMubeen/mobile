@@ -1,0 +1,2932 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  background-color: #f9fafc;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 10px 20px;
+  margin-top: -8px;
+  margin-left: -8px;
+  background-color: white;
+  color: rgb(236, 0, 0);
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6em;
+  font-weight: bolder;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #0f7ff6c5;
+}
+
+.logo-img {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* Navbar Icons */
+.nav-icons {
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-icons i {
+  font-size: 1.6em;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-dropdown {
+  position: relative;
+}
+
+/* Notification Popup */
+.notification-popup {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 300px;
+  height: 20%;
+  padding: 15px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.notification-popup::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+/* Bell Icon */
+.nav-icons .bell i {
+  font-size: 1.6em;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
+.bell .notification-badge {
+  position: absolute;
+  top: 15px;
+  right: 90px;
+  background-color: red;
+  color: white;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* User Dropdown */
+.nav-icons .user-dropdown i {
+  font-size: 1.6em;
+  cursor: pointer;
+  color: blue;
+  position: relative;
+}
+
+.user-dropdown.active i::after {
+  content: " ▼";
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Active Notification and Dropdown */
+.notification-popup.active,
+.dropdown-menu.active {
+  display: block;
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  background: linear-gradient(135deg, white, white);
+  padding: 20px;
+  margin-left: -8px;
+  box-shadow: transparent;
+  color: #ff0000;
+}
+
+.sidebar nav ul {
+  margin-left: -40px;
+  margin-top: 3.5%;
+  position: fixed;
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 10px;
+  border-radius: 5px;
+  transition: color 0.3s ease;
+}
+
+.sidebar nav ul li:hover {
+  background-color: #859ee51e;
+  color: #007bff;
+}
+
+.sidebar nav ul li.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+/* Sidebar Logo */
+.sidebar .logo img {
+  width: 150px;
+  margin-bottom: 30px;
+}
+
+/* Main Content Styles */
+.main-content {
+  margin-top: 4%;
+  flex: 1;
+  padding: 20px;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+header h2 {
+  margin: 0;
+}
+
+header p {
+  margin-top: 10px;
+}
+
+header a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Referral Section */
+.referral-section {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.referral-link-box {
+  display: flex;
+  align-items: center;
+}
+
+#referral-link {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.copy-link {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-share {
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.social-icon.facebook { background-color: #3b5998; }
+.social-icon.whatsapp { background-color: #25d366; }
+.social-icon.twitter { background-color: #1da1f2; }
+.social-icon.reddit { background-color: #ff4500; }
+.social-icon.telegram { background-color: #0088cc; }
+
+/* Referral Code Section */
+.referral-code {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.enter-code {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Referral Code Input Section */
+.referral-code {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.save-code-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Referral Amount Section */
+.referral-amount {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#referral-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#close-modal {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Referral Container */
+.referral-container {
+  text-align: center;
+}
+
+.referral-label {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 0px;
+  display: block;
+}
+
+.referral-input {
+  width: 300px;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.referral-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Sidebar Social Media Icons */
+.sidebar .social-icons {
+  position: fixed; /* Keeps the icons at the bottom of the sidebar */
+  bottom: 20px; /* Distance from the bottom edge */
+  left: 20px; /* Aligns inside the sidebar padding */
+  display: flex;
+  gap: 10px; /* Space between icons */
+}
+
+.sidebar .social-icons a {
+  color: #007bff; /* Icon color */
+  font-size: 18px; /* Icon size */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sidebar .social-icons a:hover {
+  color: #0056b3; /* Change color on hover */
+}
+
+
+footer {
+  background-color:transparent; /* Footer background color */
+  color: black; /* Text color */
+  padding: 10px 20px; /* Adjust padding for spacing */
+  font-size: 10px; /* Small font size */
+  font-family: 'Arial', sans-serif;
+  text-align: right; /* Align content to the right */
+  position: relative; /* Ensure footer stays at the bottom */
+  width: 100%; /* Full width */
+  box-shadow: transparent; /* Optional subtle shadow */
+}
+
+/* Small devices (280px - 600px) */
+@media (min-width: 280px) {
+
+
+   /* General body styling */
+   html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+  }
+   
+   body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    line-height: 1.5; /* Better line height for readability */
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+    color: #333; /* Dark text color */
+  }
+
+  /* General body adjustments */
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom,#e3f2fd , #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.logo {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  width: 25px; /* Smaller logo */
+}
+
+.nav-icons {
+  margin-right: 19px;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-icons i {
+  font-size: 1em;
+}
+
+.notification-popup {
+  width: 120px;
+  height: auto;
+  font-size: 0.6em;
+  top: 45px;
+  right: 48px;
+}
+
+.nav-icons .bell i {
+  font-size: 1.1em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+
+.bell .notification-badge {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  background-color: red;
+  color: white;
+  font-size: 0.5em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+  
+  
+.nav-icons .user-dropdown i {
+  font-size: 1.1em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 0.7em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+    /* Menu toggle button styles */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      width: 20px;
+      height: 15px;
+      justify-content: space-between;
+    }
+
+    .bar {
+      height: 4px;
+      background-color: #39aafb;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    /* Nav links styles */
+    .nav-linkss {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: none; /* Initially hidden */
+      flex-direction: column;
+      position: absolute;
+      top: 43px;
+      left: 0;
+      width: 100%;
+      border-radius: 5px;
+      background: linear-gradient(to right, #ffffff,#93d2fe 80%);
+      animation: upDown 1s ease-in-out;
+    }
+
+    .nav-linkss li {
+      text-align: left; /* Aligns text to the left */
+      padding: 15px;
+      border-top: 0.3px solid linear-gradient(to right,#93d2fe 80%, #ffffff);
+  }
+
+  .nav-linkss li a {
+    text-align: left;
+    font-weight: 300;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+    transition: color 0.3s ease;
+  }
+
+  .nav-linkss li a:hover {
+    color: #f80000; /* Hover color */
+  }
+
+    /* Animations */
+    .nav-linkss.show {
+      display: flex; /* Display the links */
+    }
+
+    .bar.rotate1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .bar.rotate2 {
+      opacity: 0;
+    }
+
+    .bar.rotate3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  .sidebar {
+    display: none;
+  }
+
+
+  /* Main Content Styles */
+  .main-content {
+    margin-top: 14%;
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+  }
+
+  header {
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  header p {
+    font-size: 13px;
+  }
+
+   /* Referral Section */
+   .referral-section {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  .referral-code {
+    text-align: center;
+    margin: 20px 0;
+
+  }
+
+
+   
+  .referral-input {
+    width: 130px;
+    padding: 8px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: -2px;
+    font-size: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .save-code-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+
+  .referral-amount {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .referral-link-box{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+/* Social Share Styles */
+.social-share {
+  display: flex;
+  justify-content: center; /* Center the icons */
+  align-items: center; /* Vertically align icons */
+  gap: 2px; /* Space between icons (10px) */
+  margin-top: 20px; /* Space from top */
+}
+
+.social-icon {
+  text-decoration: none; /* Remove underline */
+}
+
+
+
+/* Optional: Adjust the color for each icon individually */
+.social-icon.facebook:hover { color: #3b5998; }
+.social-icon.whatsapp:hover { color: #25d366; }
+.social-icon.twitter:hover { color: #1da1f2; }
+.social-icon.reddit:hover { color: #ff4500; }
+.social-icon.telegram:hover { color: #0088cc; }
+
+ 
+
+  .referral-link-box input {
+    width: auto; /* Input spans full width */
+    margin-bottom: 10px;
+  }
+
+  .copy-link {
+    width: auto;
+  }
+
+  .social-share .social-icon {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 14px;
+  }
+
+  #referral-amount {
+    font-size: 2em;
+  }
+}
+
+/* Medium devices (600px - 1024px) */
+@media (min-width: 450px) {
+.notification-popup {
+  width: 150px;
+  height: auto;
+  font-size: 0.7em;
+  top: 45px;
+  right: 55px;
+}}
+
+/* Medium devices (600px - 1024px) */
+@media (min-width: 550px) {
+ /* General body adjustments */
+
+  /* General body styling */
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+  }
+   
+   body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    line-height: 1.5; /* Better line height for readability */
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+    color: #333; /* Dark text color */
+  }
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, #e3f2fd,#ffffff ); 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  z-index: 1000; /* Ensure navbar stays on top */
+ }
+
+ 
+ 
+ .logo {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+ }
+ 
+ .logo-img { 
+  margin-left: 10px;
+  width: 30px; /* Smaller logo */
+ }
+ 
+ .nav-icons {
+  display: flex;
+  margin-right: 40px;
+  gap: 15px;
+ }
+ 
+ .nav-icons i {
+  margin-right: 0px;
+  font-size: 1em;
+ }
+ 
+ .notification-popup {
+  width: 170px;
+  height: auto;
+  font-size: 0.7em;
+  top: 49px;
+  right: 70px;
+ }
+ 
+ .nav-icons .bell i {
+  font-size: 1.1em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+ }
+ 
+ .bell .notification-badge {
+  position: absolute;
+  top: 10px;
+  right: 72px;
+  background-color: red;
+  color: white;
+  font-size: 0.4em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+ 
+  
+  
+ .nav-icons .user-dropdown i {
+  font-size: 1.1em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+ }
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 0.7em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+ 
+ 
+ 
+     /* Menu toggle button styles */
+     .menu-toggle {
+       display: none;
+     }
+ 
+ /* Dashboard layout */
+ .dashboard {
+   display: flex;
+   flex-direction: row; /* Default for large screens */
+   padding-top: 0px;
+   min-height: 100vh; /* To avoid overlap with fixed navbar */
+ }
+ .sidebar {
+   box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+   display: flex;
+   width: 27%;
+   height: 100%;
+   padding: 0 10px 10px 10px;
+   position: fixed;
+   top: 23px; /* Below the navbar */
+   left: 0;
+   background:#ffffff; /* Background color for sidebar */
+ }
+ 
+ .sidebar nav ul { 
+    margin-top: 40px;
+   margin-left: 10px;
+   list-style: none;
+ }
+ 
+ .sidebar nav ul li {
+   margin-left: -52px;
+   margin-bottom: 2px;
+ }
+ 
+ .sidebar nav ul li a {
+ 
+   padding: 10px 10px 5px 10px;
+   gap: 10px;
+   margin-left: 12px;
+   font-size: 11px; 
+   font-weight: 300;/* Adjust font size */
+   text-decoration: none;
+   color: #333; /* Ensure text color contrasts */
+ }
+
+
+  .main-content {
+    margin-top: 60px;
+    margin-left: 210px;
+  }
+
+  .referral-section,
+  .referral-code {
+    padding: 15px;
+  }
+  footer {
+    background-color:transparent; /* Footer background color */
+    color: black; /* Text color */
+    padding: 10px 20px; /* Adjust padding for spacing */
+    font-size: 10px; /* Small font size */
+    font-family: 'Arial', sans-serif;
+    text-align: right; /* Align content to the right */
+    position: relative; /* Ensure footer stays at the bottom */
+    width: 100%; /* Full width */
+    box-shadow: transparent; /* Optional subtle shadow */
+  }
+}
+
+@media (min-width: 650px) {
+  .sidebar {
+    box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 26.2%;
+    height: 100%;
+    padding: 0 10px 10px 10px;
+    position: fixed;
+    top: 23px; /* Below the navbar */
+    left: 0;
+    background:#ffffff; /* Background color for sidebar */
+  }
+  
+  .sidebar nav ul { 
+    margin-top: 40px;
+   margin-left: 10px;
+   list-style: none;
+ }
+ 
+ .sidebar nav ul li {
+   margin-left: -52px;
+   margin-bottom: 2px;
+ }
+ 
+ .sidebar nav ul li a {
+ 
+   padding: 10px 10px 5px 10px;
+   gap: 10px;
+   margin-left: 12px;
+   font-size: 11px; 
+   font-weight: 300;/* Adjust font size */
+   text-decoration: none;
+   color: #333; /* Ensure text color contrasts */
+ }
+  }
+  
+
+@media (min-width: 700px) {
+
+  .logo {
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+   }
+   
+   .logo-img { 
+    margin-left: 10px;
+    width: 30px; /* Smaller logo */
+   }
+   
+   .nav-icons {
+    display: flex;
+    margin-right: 40px;
+    gap: 15px;
+   }
+   
+   .nav-icons i {
+    margin-right: 0px;
+    font-size: 1em;
+   }
+   
+   .notification-popup {
+    width: 170px;
+    height: auto;
+    font-size: 0.7em;
+    top: 49px;
+    right: 70px;
+   }
+   
+   .nav-icons .bell i {
+    font-size: 1.1em;
+    cursor: pointer;
+    position: relative;
+    color: white; /* Inner fill color */
+    -webkit-text-stroke: 1px black; /* Outline color */
+   }
+   
+   .bell .notification-badge {
+    position: absolute;
+    top: 10px;
+    right: 72px;
+    background-color: red;
+    color: white;
+    font-size: 0.4em;
+    font-weight: bold;
+    padding: 1px 5px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+   }
+ 
+    
+}
+
+
+
+ /* Medium devices (600px - 1024px) */
+@media (min-width: 720px) {
+   
+     
+     /* Dashboard layout */
+     .dashboard {
+       display: flex;
+       flex-direction: row; /* Default for large screens */
+       padding-top: 10px;
+       min-height: 100vh; /* To avoid overlap with fixed navbar */
+     }
+    
+     .sidebar {
+      box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      width: 23.4%;
+      height: 100%;
+      padding: 0 10px 10px 10px;
+      position: fixed;
+      top: 23px; /* Below the navbar */
+      left: 0;
+      background:#ffffff; /* Background color for sidebar */
+    }
+    .sidebar nav ul { 
+      margin-top: 40px;
+     margin-left: 10px;
+     list-style: none;
+   }
+   
+   .sidebar nav ul li {
+     margin-left: -52px;
+     margin-bottom: 2px;
+   }
+    
+    .sidebar nav ul li a {
+    
+      padding: 10px 10px 5px 10px;
+      gap: 10px;
+      margin-left: 12px;
+      font-size: 12px; 
+      font-weight: 300;/* Adjust font size */
+      text-decoration: none;
+      color: #333; /* Ensure text color contrasts */
+    }
+ 
+ 
+ .main-content {
+  margin-top: 60px;
+  margin-left: 240px;
+}
+ 
+   .referral-section,
+   .referral-code {
+     padding: 15px;
+   }
+ }
+
+
+
+ 
+ @media (min-width: 800px) {
+   /* General body styling */
+   html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+  }
+   
+   body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    line-height: 1.5; /* Better line height for readability */
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+    color: #333; /* Dark text color */
+  }
+  
+  .logo {
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+   }
+   
+   .logo-img { 
+    margin-left: 10px;
+    width: 30px; /* Smaller logo */
+   }
+   
+   .nav-icons {
+    display: flex;
+    margin-right: 40px;
+    gap: 15px;
+   }
+   
+   .nav-icons i {
+    font-size: 1em;
+   }
+   
+   .notification-popup {
+    width: 160px;
+    height: auto;
+    font-size: 0.7em;
+    top: 49px;
+    right: 70px;
+   }
+   
+   .nav-icons .bell i {
+    font-size: 1.12em;
+    cursor: pointer;
+    position: relative;
+    color: white; /* Inner fill color */
+    -webkit-text-stroke: 1px black; /* Outline color */
+   }
+   
+   .bell .notification-badge {
+    position: absolute;
+    top: 10px;
+    right: 73px;
+    background-color: red;
+    color: white;
+    font-size: 0.4em;
+    font-weight: bold;
+    padding: 1px 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+   }
+   
+    
+    
+  
+.nav-icons .user-dropdown i {
+  font-size: 1.2em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+ }
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 0.7em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+   
+   
+   
+       /* Menu toggle button styles */
+       .menu-toggle {
+         display: none;
+       }
+   
+   /* Dashboard layout */
+   .dashboard {
+     display: flex;
+     flex-direction: row; /* Default for large screens */
+     padding-top: 10px;
+     min-height: 100vh; /* To avoid overlap with fixed navbar */
+   }
+  
+   .sidebar {
+    box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 20.5%;
+    height: 100%;
+    padding: 0 10px 10px 10px;
+    position: fixed;
+    top: 23px; /* Below the navbar */
+    left: 0;
+    background:#ffffff; /* Background color for sidebar */
+  }
+  
+  .sidebar nav ul { 
+    margin-top: 40px;
+   margin-left: 10px;
+   list-style: none;
+ }
+ 
+ .sidebar nav ul li {
+   margin-left: -52px;
+   margin-bottom: 2px;
+ }
+  
+  .sidebar nav ul li a {
+  
+    padding: 10px 10px 5px 10px;
+    gap: 10px;
+    margin-left: 12px;
+    font-size: 12px; 
+    font-weight: 300;/* Adjust font size */
+    text-decoration: none;
+    color: #333; /* Ensure text color contrasts */
+  }
+
+ .main-content {
+  margin-top: 60px;
+  margin-left: 300px;
+  margin-right: 10%;
+}
+ 
+   .referral-section,
+   .referral-code {
+     padding: 15px;
+   }
+ }
+
+
+/* Large devices (1025px - 1440px) */
+@media (min-width: 850px) {
+ .sidebar {
+  box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 20.5%;
+  height: 100%;
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  top: 23px; /* Below the navbar */
+  left: 0;
+  background:#ffffff; /* Background color for sidebar */
+}
+}
+
+/* Large devices (1025px - 1440px) */
+@media (min-width: 900px) {
+
+.logo {
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  margin-left: 10px;
+  width: 30px; /* Smaller logo */
+}
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .sidebar {
+        box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        width: 17.7%;
+        height: 100%;
+        padding: 0 10px 10px 10px;
+        position: fixed;
+        top: 23px; /* Below the navbar */
+        left: 0;
+        background:#ffffff; /* Background color for sidebar */
+      }
+      
+      .sidebar nav ul { 
+        margin-top: 40px;
+       margin-left: 10px;
+       list-style: none;
+     }
+     
+     .sidebar nav ul li {
+       margin-left: -52px;
+       margin-bottom: 2px;
+     }
+      
+      .sidebar nav ul li a {
+      
+        padding: 10px 10px 5px 10px;
+        gap: 10px;
+        margin-left: 12px;
+        font-size: 12px; 
+        font-weight: 300;/* Adjust font size */
+        text-decoration: none;
+        color: #333; /* Ensure text color contrasts */
+      }
+}
+
+
+
+
+
+/* Large devices (1025px - 1440px) */
+@media (min-width: 1000px) {
+
+.logo {
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  margin-left: 10px;
+  width: 34px; /* Smaller logo */
+}
+
+.nav-icons {  margin-right: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-icons i {
+  font-size: 2em;
+ }
+
+.notification-popup {
+  width: 200px;
+  height: auto;
+  font-size: 0.8em;
+  top: 45px;
+  right: 53px;
+}
+
+.nav-icons .bell i {
+  font-size: 1.2em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+
+.bell .notification-badge {
+  position: absolute;
+  top: 13px;
+  right: 72px;
+  background-color: red;
+  color: white;
+  font-size: 0.5em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+  
+  
+.nav-icons .user-dropdown i {
+  font-size: 1.3em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 28px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 0.9em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+
+      
+            .sidebar {
+              box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+              display: flex;
+              width: 18%;
+              height: 100%;
+              padding: 0 10px 10px 10px;
+              position: fixed;
+              top: 23px; /* Below the navbar */
+              left: 0;
+              background:#ffffff; /* Background color for sidebar */
+            }
+            
+            .sidebar nav ul { 
+               margin-top: 40px;
+              margin-left: 10px;
+              list-style: none;
+            }
+            
+            .sidebar nav ul li {
+              margin-left: -52px;
+              margin-bottom: 2px;
+            }
+            
+            .sidebar nav ul li a {
+            
+              padding: 10px 10px 5px 10px;
+              gap: 10px;
+              margin-left: 12px;
+              font-size: 13px; 
+              font-weight: 300;/* Adjust font size */
+              text-decoration: none;
+              color: #333; /* Ensure text color contrasts */
+            }
+ }
+
+
+
+/* Large devices (1025px - 1440px) */
+@media (min-width: 1100px) {
+ 
+.logo {
+  font-size: 1.6em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  margin-left: 10px;
+  width: 34px; /* Smaller logo */
+}
+
+.nav-icons {  margin-right: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-icons i {
+  font-size: 2em;
+ }
+
+.notification-popup {
+  width: 200px;
+  height: auto;
+  font-size: 0.8em;
+  top: 49px;
+  right: 70px;
+}
+
+.nav-icons .bell i {
+  font-size: 1.4em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+
+.bell .notification-badge {
+  position: absolute;
+  top: 13px;
+  right: 77px;
+  background-color: red;
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+  
+  
+.nav-icons .user-dropdown i {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 38px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 0.9em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+
+      
+            .sidebar {
+              box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+              display: flex;
+              width: 17.8%;
+              height: 100%;
+              padding: 0 10px 10px 10px;
+              position: fixed;
+              top: 23px; /* Below the navbar */
+              left: 0;
+              background:#ffffff; /* Background color for sidebar */
+            }
+            
+            .sidebar nav ul { 
+               margin-top: 50px;
+              margin-left: 10px;
+              list-style: none;
+            }
+            
+            .sidebar nav ul li {
+              margin-left: -50px;
+              margin-bottom: 1px;
+            }
+            
+            .sidebar nav ul li a {
+            
+              padding: 10px 10px 5px 10px;
+              gap: 10px;
+              margin-left: 12px;
+              font-size: 13px; 
+              font-weight: 300;/* Adjust font size */
+              text-decoration: none;
+              color: #333; /* Ensure text color contrasts */
+            }
+
+ .main-content {
+  margin-top: 60px;
+  margin-left: 300px;
+  margin-right: 10%;
+}
+
+ }
+
+/* Large devices (1025px - 1440px) */
+@media (min-width: 1200px) {
+
+
+  /* General body styling */
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+  }
+   
+   body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    line-height: 1.5; /* Better line height for readability */
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+    color: #333; /* Dark text color */
+  }
+ 
+ /* Navbar styling */
+ .navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff); /* Light gray background for contrast */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+
+.logo {
+  font-size: 1.6em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;}
+
+.logo-img {
+margin-left: 0px;
+  width: 34px; /* Smaller logo */
+}
+
+.nav-icons {  
+ 
+  display: flex;
+  gap: 10px;
+}
+
+.nav-icons i { margin-right: 5px;
+  font-size: 2em;
+ }
+
+ .notification-popup {
+  width: 290px;
+  height: auto;
+  font-size: 1em;
+  top: 50px;
+  right: 72px;
+}
+
+.nav-icons .bell i {
+  font-size: 1.5em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+
+.bell .notification-badge {
+  position: absolute;
+  top: 12px;
+  right: 85px;
+  background-color: red;
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+  
+  
+.nav-icons .user-dropdown i {
+  font-size: 1.6em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 35px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 1em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+ 
+   
+      
+      
+      
+         
+      .sidebar {
+        box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        width: 16.9%;
+        height: 100%;
+        padding: 0 10px 10px 10px;
+        position: fixed;
+        top: 23px; /* Below the navbar */
+        left: 0;
+        background:#ffffff; /* Background color for sidebar */
+      }
+      
+      .sidebar nav ul { 
+         margin-top: 50px;
+        margin-left: 13px;
+        list-style: none;
+      }
+      
+      .sidebar nav ul li {
+        margin-left: -52px;
+        margin-bottom: 2px;
+      }
+      
+      .sidebar nav ul li a {
+        margin-bottom: 0px;
+        padding: 10px 10px 5px 10px;
+        gap: 10px;
+        margin-left: 12px;
+        font-size: 15px; 
+        font-weight: 300;/* Adjust font size */
+        text-decoration: none;
+        color: #333; /* Ensure text color contrasts */
+      }
+
+
+
+  .hmain-content {
+    margin-top: 60px;
+    margin-left: 370px;
+    margin-right: 10%;
+  }
+
+
+  
+
+  /* Main Content Styles */
+  .main-content {
+    margin-top: 6%;
+    flex: 1;
+    padding: 10px;
+    margin-left: 30%;
+    margin-right: 10%;
+  }
+
+  header {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  
+  .referral-link-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  #referral-link {
+    width: 50%;
+    flex: 1;
+    font-size: 1.1em;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: -20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .copy-link {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 1em; 
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+   /* Referral Section */
+   .referral-section {
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  .referral-code {
+    text-align: center;
+    padding-bottom: 20px;
+
+  }
+
+
+   
+  .referral-input {
+    width: 130px;
+    padding: 8px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: -2px;
+    font-size: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .save-code-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+
+  .referral-amount {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .referral-link-box{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  
+
+
+
+
+
+  .social-share {
+    padding: -10px;
+    text-align: center;
+  }
+  
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0px; /* Spacing between icons */
+  }
+  
+  .footer-icons .social-icon {
+    color: white; /* Icon color */
+    font-size: 2px; /* Icon size */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-icons .social-icon:hover {
+    color: #007bff; /* Hover color */
+  }
+  
+
+
+ 
+
+  .referral-link-box input {
+    width: auto; /* Input spans full width */
+    margin-bottom: 10px;
+  }
+
+  .copy-link {
+    width: auto;
+  }
+
+  .social-share .social-icon {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 14px;
+  }
+
+
+  /* Referral Code Section */
+  .referral-code {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+    /* Referral Code Section */
+    .boton{
+      width: 30%;
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      text-align: center;
+
+    }
+
+ 
+    .save-code-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  
+  /* Referral Code Input Section */
+  .referral-code {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .save-code-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+/* Extra-large devices (1441px - 2000px) */
+@media(min-width: 1300px) {
+
+
+  /* General body styling */
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); 
+  }
+   
+   body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    line-height: 1.5; /* Better line height for readability */
+    background: linear-gradient(to bottom, #ffffff,#e3f2fd ); /* Light gray background for contrast */
+    color: #333; /* Dark text color */
+  }
+ 
+ /* Navbar styling */
+ .navbar {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff); /* Light gray background for contrast */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+
+.logo {
+  font-size: 1.6em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;}
+
+.logo-img {
+  margin-left: 0px;
+  width: 35px; /* Smaller logo */
+}
+
+.nav-icons {  
+ 
+  display: flex;
+  gap: 10px;
+}
+
+.nav-icons i { margin-right: 5px;
+  font-size: 2em;
+ }
+
+.notification-popup {
+  width: 290px;
+  height: auto;
+  font-size: 1em;
+  top: 50px;
+  right: 72px;
+}
+
+.nav-icons .bell i {
+  font-size: 1.5em;
+  cursor: pointer;
+  position: relative;
+  color: white; /* Inner fill color */
+  -webkit-text-stroke: 1px black; /* Outline color */
+}
+
+.bell .notification-badge {
+  position: absolute;
+  top: 12px;
+  right: 85px;
+  background-color: red;
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+  
+  
+.nav-icons .user-dropdown i {
+  font-size: 1.6em;
+  cursor: pointer;
+  color: blue; /* Blue user icon */
+  position: relative;
+}
+      /* Dropdown Menu */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 35px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        font-size: 1em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      
+     
+          
+      .sidebar {
+        box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        width: 15.1%;
+        height: 100%;
+        padding: 0 10px 10px 10px;
+        position: fixed;
+        top: 23px; /* Below the navbar */
+        left: 0;
+        background:#ffffff; /* Background color for sidebar */
+      }
+      
+      .sidebar nav ul { 
+         margin-top: 50px;
+        margin-left: 13px;
+        list-style: none;
+      }
+      
+      .sidebar nav ul li {
+        margin-left: -52px;
+        margin-bottom: 2px;
+      }
+      
+      .sidebar nav ul li a {
+        margin-bottom: 0px;
+        padding: 10px 10px 5px 10px;
+        gap: 10px;
+        margin-left: 12px;
+        font-size: 15px; 
+        font-weight: 300;/* Adjust font size */
+        text-decoration: none;
+        color: #333; /* Ensure text color contrasts */
+      }
+
+  /* Main Content Styles */
+  .main-content {
+    margin-top: 6%;
+    flex: 1;
+    padding: 10px;
+    margin-left: 33%;
+    margin-right: 10%;
+  }
+
+  header .h2{
+    font-size: 1.7em;
+    text-align: center;
+  }
+
+  header p {
+    font-size: 1.2em;
+  }
+
+  
+  .referral-link-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  #referral-link {
+    width: 50%;
+    flex: 1;
+    font-size: 1.2em;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: -20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .copy-link {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 1em; 
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+   /* Referral Section */
+   .referral-section {
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  .referral-code {
+    text-align: center;
+    padding-bottom: 20px;
+
+  }
+
+
+   
+  .referral-input {
+    width: 130px;
+    padding: 8px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: -2px;
+    font-size: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .save-code-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+
+  .referral-amount {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .referral-link-box{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  
+
+
+
+
+
+  .social-share {
+    padding: -10px;
+    text-align: center;
+  }
+  
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0px; /* Spacing between icons */
+  }
+  
+  .footer-icons .social-icon {
+    color: white; /* Icon color */
+    font-size: 2px; /* Icon size */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-icons .social-icon:hover {
+    color: #007bff; /* Hover color */
+  }
+  
+
+
+ 
+
+  .referral-link-box input {
+    width: auto; /* Input spans full width */
+    margin-bottom: 10px;
+  }
+
+  .copy-link {
+    width: auto;
+  }
+
+  .social-share .social-icon {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 14px;
+  }
+
+
+  /* Referral Code Section */
+  .referral-code {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+    /* Referral Code Section */
+    .boton{
+      width: 30%;
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 8px;
+      font-size: 17px;
+      border-radius: 5px;
+      text-align: center;
+
+    }
+
+ 
+    .save-code-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  
+  /* Referral Code Input Section */
+  .referral-code {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .save-code-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+}
+
+
+
+/* Extra-large devices (1441px - 2000px) */
+@media (min-width: 1400px) {
+
+ 
+  /* Navbar styling */
+  .navbar {
+   position: fixed;
+   width: 100%;
+   background: linear-gradient(to bottom, #e3f2fd, #ffffff); /* Light gray background for contrast */
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+   padding: 12px;
+   z-index: 1000; /* Ensure navbar stays on top */
+ }
+ 
+ 
+ .logo {
+   font-size: 1.6em;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   margin-left: 8px;}
+ 
+ .logo-img {
+ 
+   width: 35px; /* Smaller logo */
+ }
+ 
+ .nav-icons {  
+  
+   display: flex;
+   gap: 10px;
+ }
+ 
+ .nav-icons i { margin-right: 5px;
+   font-size: 2em;
+  }
+ 
+ .notification-popup {
+   width: 280px;
+   height: auto;
+   font-size: 1em;
+   top: 50px;
+   right: 72px;
+ }
+ 
+ .nav-icons .bell i {
+   font-size: 1.5em;
+   cursor: pointer;
+   position: relative;
+   color: white; /* Inner fill color */
+   -webkit-text-stroke: 1px black; /* Outline color */
+ }
+ 
+ .bell .notification-badge {
+   position: absolute;
+   top: 12px;
+   right: 85px;
+   background-color: red;
+   color: white;
+   font-size: 0.6em;
+   font-weight: bold;
+   padding: 1px 5px;
+   border-radius: 50%;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+ 
+   
+   
+ .nav-icons .user-dropdown i {
+   font-size: 1.6em;
+   cursor: pointer;
+   color: blue; /* Blue user icon */
+   position: relative;
+ }
+       /* Dropdown Menu */
+       .dropdown-menu {
+         display: none;
+         position: absolute;
+         top: 35px;
+         right: 0;
+         background-color: #fff;
+         color: #333;
+         font-size: 1.1em;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         border-radius: 8px;
+         overflow: hidden;
+         z-index: 10;
+       }
+       .dropdown-menu a {
+         display: block;
+         padding: 10px 15px;
+         text-decoration: none;
+         color: #333;
+       }
+ 
+         
+      
+          
+       .sidebar {
+        box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        width: 16.2%;
+        height: 100%;
+        padding: 0 10px 10px 10px;
+        position: fixed;
+        top: 23px; /* Below the navbar */
+        left: 0;
+        background:#ffffff; /* Background color for sidebar */
+      }
+      
+      .sidebar nav ul { 
+         margin-top: 49px;
+        margin-left: 13px;
+        list-style: none;
+      }
+      
+      .sidebar nav ul li {
+        margin-left: -52px;
+        margin-bottom: 1px;
+      }
+      
+      .sidebar nav ul li a {
+        margin-bottom: 0px;
+        padding: 10px 10px 5px 10px;
+        gap: 10px;
+        margin-left: 12px;
+        font-size: 16.5px; 
+        font-weight: 300;/* Adjust font size */
+        text-decoration: none;
+        color: #333; /* Ensure text color contrasts */
+      }
+   /* Main Content Styles */
+   .main-content {
+     margin-top: 6%;
+     flex: 1;
+     padding: 10px;
+     margin-left: 33%;
+     margin-right: 10%;
+   }
+ 
+   header .h2{
+     font-size: 1.7em;
+     text-align: center;
+   }
+ 
+   header p {
+     font-size: 1.2em;
+   }
+ 
+   
+   .referral-link-box {
+     display: flex;
+     align-items: center;
+   }
+   
+   #referral-link {
+     width: 50%;
+     flex: 1;
+     font-size: 1.2em;
+     padding: 10px;
+     margin-right: 10px;
+     margin-top: -20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+   }
+   
+   .copy-link {
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     font-size: 1em; 
+     padding: 10px 15px;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+ 
+    /* Referral Section */
+    .referral-section {
+     margin-top: 30px;
+     background-color: #ffffff;
+     padding: 20px;
+     border-radius: 5px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+ 
+   
+   .referral-code {
+     text-align: center;
+     padding-bottom: 20px;
+ 
+   }
+ 
+ 
+    
+   .referral-input {
+     width: 130px;
+     padding: 8px 5px;
+     border: 1px solid #ddd;
+     border-radius: 5px;
+     margin: -2px;
+     font-size: 12px;
+     outline: none;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   }
+ 
+ 
+   .save-code-btn {
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     padding: 8px 10px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 12px;
+   }
+ 
+ 
+   .referral-amount {
+     padding: 15px;
+     margin-bottom: 20px;
+   }
+ 
+   .referral-link-box{
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+   }
+ 
+   
+ 
+ 
+ 
+ 
+ 
+   .social-share {
+     padding: -10px;
+     text-align: center;
+   }
+   
+   .footer-icons {
+     display: flex;
+     justify-content: center;
+     gap: 0px; /* Spacing between icons */
+   }
+   
+   .footer-icons .social-icon {
+     color: white; /* Icon color */
+     font-size: 2px; /* Icon size */
+     text-decoration: none;
+     transition: color 0.3s;
+   }
+   
+   .footer-icons .social-icon:hover {
+     color: #007bff; /* Hover color */
+   }
+   
+ 
+ 
+  
+ 
+   .referral-link-box input {
+     width: auto; /* Input spans full width */
+     margin-bottom: 10px;
+   }
+ 
+   .copy-link {
+     width: auto;
+   }
+ 
+   .social-share .social-icon {
+     display: inline-block;
+     margin: 5px 10px;
+     font-size: 14px;
+   }
+ 
+ 
+   /* Referral Code Section */
+   .referral-code {
+     margin-top: 20px;
+     background-color: #ffffff;
+     padding: 20px;
+     font-size: 14px;
+     border-radius: 5px;
+     text-align: center;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+     /* Referral Code Section */
+     .boton{
+       width: 30%;
+       margin-top: 20px;
+       background-color: #ffffff;
+       padding: 8px;
+       font-size: 17px;
+       border-radius: 5px;
+       text-align: center;
+ 
+     }
+ 
+  
+     .save-code-btn {
+       background-color: #007bff;
+       color: #fff;
+       border: none;
+       padding: 8px 10px;
+       border-radius: 5px;
+       cursor: pointer;
+       font-size: 12px;
+     }
+   
+   /* Referral Code Input Section */
+   .referral-code {
+     text-align: center;
+     margin: 20px 0;
+   }
+   
+   .save-code-btn {
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 14px;
+   }
+ 
+ }
+
+ 
+ 
+/* Extra-large devices (1441px - 2000px) */
+@media (min-width: 1500px) {
+
+ 
+  /* Navbar styling */
+  .navbar {
+   position: fixed;
+   width: 100%;
+   background: linear-gradient(to bottom, #e3f2fd, #ffffff); /* Light gray background for contrast */
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+   padding: 12px;
+   z-index: 1000; /* Ensure navbar stays on top */
+ }
+ 
+ 
+ .logo {
+   font-size: 1.6em;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   margin-left: 8px;}
+ 
+ .logo-img {
+ 
+   width: 35px; /* Smaller logo */
+ }
+ 
+ .nav-icons {  
+  
+   display: flex;
+   gap: 10px;
+ }
+ 
+ .nav-icons i { margin-right: 5px;
+   font-size: 2em;
+  }
+ 
+ .notification-popup {
+   width: 300px;
+   height: auto;
+   font-size: 1.2em;
+   top: 50px;
+   right: 72px;
+ }
+ 
+ .nav-icons .bell i {
+   font-size: 1.5em;
+   cursor: pointer;
+   position: relative;
+   color: white; /* Inner fill color */
+   -webkit-text-stroke: 1px black; /* Outline color */
+ }
+ 
+ .bell .notification-badge {
+   position: absolute;
+   top: 12px;
+   right: 85px;
+   background-color: red;
+   color: white;
+   font-size: 0.6em;
+   font-weight: bold;
+   padding: 1px 5px;
+   border-radius: 50%;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+ 
+   
+   
+ .nav-icons .user-dropdown i {
+   font-size: 1.6em;
+   cursor: pointer;
+   color: blue; /* Blue user icon */
+   position: relative;
+ }
+       /* Dropdown Menu */
+       .dropdown-menu {
+         display: none;
+         position: absolute;
+         top: 35px;
+         right: 0;
+         background-color: #fff;
+         color: #333;
+         font-size: 1.2em;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         border-radius: 8px;
+         overflow: hidden;
+         z-index: 10;
+       }
+       .dropdown-menu a {
+         display: block;
+         padding: 10px 15px;
+         text-decoration: none;
+         color: #333;
+       }
+ 
+  
+          
+      .sidebar {
+        box-shadow: 0 4px 6px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        width: 16.2%;
+        height: 100%;
+        padding: 0 10px 10px 10px;
+        position: fixed;
+        top: 23px; /* Below the navbar */
+        left: 0;
+        background:#ffffff; /* Background color for sidebar */
+      }
+      
+      .sidebar nav ul { 
+         margin-top: 51px;
+        margin-left: 13px;
+        list-style: none;
+      }
+      
+      .sidebar nav ul li {
+        margin-left: -52px;
+        margin-bottom: 1px;
+      }
+      
+      .sidebar nav ul li a {
+        margin-bottom: 0px;
+        padding: 10px 10px 5px 10px;
+        gap: 10px;
+        margin-left: 12px;
+        font-size: 16.5px; 
+        font-weight: 300;/* Adjust font size */
+        text-decoration: none;
+        color: #333; /* Ensure text color contrasts */
+      }
+   /* Main Content Styles */
+   .main-content {
+     margin-top: 6%;
+     flex: 1;
+     padding: 10px;
+     margin-left: 33%;
+     margin-right: 10%;
+   }
+ 
+   header .h2{
+     font-size: 1.7em;
+     text-align: center;
+   }
+ 
+   header p {
+     font-size: 1.2em;
+   }
+ 
+   
+   .referral-link-box {
+     display: flex;
+     align-items: center;
+   }
+   
+   #referral-link {
+     width: 50%;
+     flex: 1;
+     font-size: 1.2em;
+     padding: 10px;
+     margin-right: 10px;
+     margin-top: -20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+   }
+   
+   .copy-link {
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     font-size: 1em; 
+     padding: 10px 15px;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+ 
+    /* Referral Section */
+    .referral-section {
+     margin-top: 30px;
+     background-color: #ffffff;
+     padding: 20px;
+     border-radius: 5px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+ 
+   
+   .referral-code {
+     text-align: center;
+     padding-bottom: 20px;
+ 
+   }
+ 
+ 
+    
+   .referral-input {
+     width: 130px;
+     padding: 8px 5px;
+     border: 1px solid #ddd;
+     border-radius: 5px;
+     margin: -2px;
+     font-size: 12px;
+     outline: none;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   }
+ 
+ 
+   .save-code-btn {
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     padding: 8px 10px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 12px;
+   }
+ 
+ 
+   .referral-amount {
+     padding: 15px;
+     margin-bottom: 20px;
+   }
+ 
+   .referral-link-box{
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+   }
+ 
+   
+ 
+ 
+ 
+ 
+ 
+   .social-share {
+     padding: -10px;
+     text-align: center;
+   }
+   
+   .footer-icons {
+     display: flex;
+     justify-content: center;
+     gap: 0px; /* Spacing between icons */
+   }
+   
+   .footer-icons .social-icon {
+     color: white; /* Icon color */
+     font-size: 2px; /* Icon size */
+     text-decoration: none;
+     transition: color 0.3s;
+   }
+   
+   .footer-icons .social-icon:hover {
+     color: #007bff; /* Hover color */
+   }
+   
+ 
+ 
+  
+ 
+   .referral-link-box input {
+     width: auto; /* Input spans full width */
+     margin-bottom: 10px;
+   }
+ 
+   .copy-link {
+     width: auto;
+   }
+ 
+   .social-share .social-icon {
+     display: inline-block;
+     margin: 5px 10px;
+     font-size: 14px;
+   }
+ 
+ 
+   /* Referral Code Section */
+   .referral-code {
+     margin-top: 20px;
+     background-color: #ffffff;
+     padding: 20px;
+     font-size: 14px;
+     border-radius: 5px;
+     text-align: center;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+     /* Referral Code Section */
+     .boton{
+       width: 30%;
+       margin-top: 20px;
+       background-color: #ffffff;
+       padding: 8px;
+       font-size: 17px;
+       border-radius: 5px;
+       text-align: center;
+ 
+     }
+ 
+  
+     .save-code-btn {
+       background-color: #007bff;
+       color: #fff;
+       border: none;
+       padding: 8px 10px;
+       border-radius: 5px;
+       cursor: pointer;
+       font-size: 12px;
+     }
+   
+   /* Referral Code Input Section */
+   .referral-code {
+     text-align: center;
+     margin: 20px 0;
+   }
+   
+   .save-code-btn {
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 14px;
+   }
+ 
+ }
+ 
